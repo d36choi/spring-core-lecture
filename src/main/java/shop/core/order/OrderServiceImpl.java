@@ -1,5 +1,7 @@
 package shop.core.order;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import shop.core.discount.DiscountPolicy;
 import shop.core.discount.FixDiscountPolicy;
 import shop.core.discount.RateDiscountPolicy;
@@ -7,14 +9,16 @@ import shop.core.member.Member;
 import shop.core.member.MemberRepository;
 import shop.core.member.MemoryMemberRepository;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
-//    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 // DIP 위반이다. 인터페이스가 아니라 구현체에 의존하는 형태다.
     private DiscountPolicy discountPolicy;
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
