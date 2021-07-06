@@ -3,12 +3,12 @@ package shop.core.lifecycle;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class NetworkClient implements DisposableBean, InitializingBean {
+public class NetworkClient {
 
     private String url;
 
     public NetworkClient() {
-        System.out.println("constructor 호출 url = "+url);
+        System.out.println("constructor 호출 url = " + url);
     }
 
     public void setUrl(String url) {
@@ -20,7 +20,7 @@ public class NetworkClient implements DisposableBean, InitializingBean {
     }
 
     public void call(String msg) {
-        System.out.println("call = "+ url);
+        System.out.println("call = " + url);
         System.out.println("msg = " + msg);
     }
 
@@ -28,13 +28,11 @@ public class NetworkClient implements DisposableBean, InitializingBean {
         System.out.println("close " + url);
     }
 
-    @Override
-    public void destroy() throws Exception {
+    public void shutdown() throws Exception {
         disconnect();
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
+    public void init() {
         connect();
         call("초기화 연결 메시지");
     }
