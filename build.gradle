@@ -8,13 +8,13 @@ group = 'shop'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-//lombok ¼³Á¤ Ãß°¡ ½ÃÀÛ
+//lombok ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
 }
-//lombok ¼³Á¤ Ãß°¡ ³¡
+//lombok ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½
 repositories {
 	mavenCentral()
 }
@@ -22,12 +22,13 @@ repositories {
 dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter'
-	//lombok ¶óÀÌºê·¯¸® Ãß°¡ ½ÃÀÛ
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//lombok ï¿½ï¿½ï¿½Ìºê·¯ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
-	//lombok ¶óÀÌºê·¯¸® Ãß°¡ ³¡
+	//lombok ï¿½ï¿½ï¿½Ìºê·¯ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
